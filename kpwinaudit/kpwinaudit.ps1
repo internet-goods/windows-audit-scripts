@@ -711,6 +711,19 @@ $section="System_WindowsUpdateConfig"
         Invoke-MyCommand -section $section -command $command
 footer -text $section
 
+$section="Networking_Browsers" 
+    header -text $section
+    comment -section $section -text "Group Policy setting for NTLM security levels"
+    $command={ Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -ErrorAction silentlycontinue }
+        Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -ErrorAction silentlycontinue }
+        Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Mozilla\Firefox" -ErrorAction silentlycontinue }
+        Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer" -ErrorAction silentlycontinue }
+        Invoke-MyCommand -section $section -command $command
+footer -text $section
+
 $section="Networking_TLS" 
     header -text $section
     comment -section $section -text "TLS SCHANNEL"
@@ -1343,5 +1356,6 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
