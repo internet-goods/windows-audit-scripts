@@ -729,6 +729,15 @@ footer -text $section
 
 $section="Networking_Browsers" 
     header -text $section
+    comment -section $section -text "Windows ETC Hosts file"
+    $command={ type C:\Windows\System32\drivers\etc\hosts }
+        Invoke-MyCommand -section $section -command $command
+    $command={ Get-FileHash C:\Windows\System32\drivers\etc\hosts | Format-List }
+        Invoke-MyCommand -section $section -command $command
+footer -text $section
+
+$section="Networking_Browsers" 
+    header -text $section
     comment -section $section -text "Browser Settings"
     $command={ Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -ErrorAction silentlycontinue }
         Invoke-MyCommand -section $section -command $command
@@ -1387,6 +1396,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
