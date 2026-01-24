@@ -713,7 +713,7 @@ footer -text $section
 
 $section="Networking_Browsers" 
     header -text $section
-    comment -section $section -text "Group Policy setting for NTLM security levels"
+    comment -section $section -text "Browser Settings"
     $command={ Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -ErrorAction silentlycontinue }
         Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -ErrorAction silentlycontinue }
@@ -741,6 +741,13 @@ $section="Networking_NTLM"
     header -text $section
     comment -section $section -text "Group Policy setting for NTLM security levels"
     $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" -ErrorAction silentlycontinue }
+        Invoke-MyCommand -section $section -command $command
+footer -text $section
+
+$section="Networking_BITS" 
+    header -text $section
+    comment -section $section -text "BITS lolbin jobs"
+    $command={ bitsadmin /list /allusers }
         Invoke-MyCommand -section $section -command $command
 footer -text $section
 
@@ -1364,6 +1371,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
