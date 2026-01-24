@@ -780,6 +780,9 @@ $section="Networking_LanmanClientConfig"
     comment -section $section -text "See Networking_LanmanServerConfig for explation of settings"
     $command={ Get-SmbClientConfiguration | Select-Object EnableInsecureGuestLogons,EnableSecuritySignature,RequireSecuritySignature | Format-List }
         Invoke-MyCommand -section $section -command $command
+    comment -section $section -text "Disable SMBv1 Client"
+    $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\mrxsmb10" -ErrorAction silentlycontinue }
+            Invoke-MyCommand -section $section -command $command
 footer -text $section
 
 $section="Networking_ListeningServices"
@@ -1340,4 +1343,5 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
