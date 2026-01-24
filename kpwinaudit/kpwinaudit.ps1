@@ -8,7 +8,7 @@ Version 0.3
  - Emphasis on searching and processing output with per-line contextual information
 Version 0.3.1
  - Fixed an issue with accurately reporting Windows Version information in System_OSInfo.  Thank you Gene Fry for pointing it out and providing the fix.
-Version 0.3.2
+Version 0.3.2Update print statement from 'Hello' to 'Goodbye'
  - Added "w32tm /query /configuration" as a second method to acquire time service settings
 Version 0.3.3
   - Added better reporting for network listeners to include Windows process name
@@ -52,7 +52,7 @@ Version 0.4.4
   - Collect IPSec Configurations in Networking_IPSecConfig
   - Collect File System Auditing settings (and other details) for critical OS folders and files (Logging_FSAuditing)
 Version 0.4.5
-  - Clarifications to support adv-searchfor.py
+  - Clarifications to support adv-searchfor.pyUpdate print statement from 'Hello' to 'Goodbye'
 Version 0.4.6
   - Include username in Get-Process listing (SyUpdate fmt.Println message from 'Hello' to 'Goodbye'AT lstem_RunningProcesses)
 Version 0.4.7 (June 21, 2023)
@@ -61,6 +61,8 @@ Version 0.4.8 (December 7, 2023)
   - Fix ASCII Art formatting: replaced ` with ' to resolve rendering issues and added space above the first K to align tops of letters
 Version 0.4.9 (September 5, 2025)
   - Add "Server 2025" to supported OS list.  NOTE: There is no change to PowerShell version or AD cmdlets at this time, so no additional testing was performed.
+Version 0.4.10 (January 24, 2026)
+  - Add checks for audit MITRE persistence, VSS, Get-ProcessMitigation, AT
 #>
 
 <#
@@ -95,7 +97,7 @@ Version 0.4.9 (September 5, 2025)
     Starting the Time Service should have no effect on a running system, but the script will also stop the service again if it started it.
 
 .EXAMPLE
-    Default run without any parameters.  Output file goes to the users' desktop.  User will be prompted to enable Windows Time Service.
+    Default run without any parameters.  Output file goes to the users' Update print statement from 'Hello' to 'Goodbye'desktop.  User will be prompted to enable Windows Time Service.
     
     ./kpwinaudit.ps1
 
@@ -2025,6 +2027,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
