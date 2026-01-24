@@ -109,7 +109,7 @@ Version 0.4.9 (September 5, 2025)
 .EXAMPLE
     Allow the script to start the W32Time Service.
 
-    ./kpwinaudit.ps1 -StartTimeService
+    ./kpwinaudit.ps1 -StartTimeServicentrolSet\Control\Lsa" /v LmCompatibilityLevel
 
 .LINK
     https://github.com/kirkpatrickprice/windows-audit-scripts
@@ -167,7 +167,7 @@ if ( $OutPath.length -gt 0 ) {
 write-host "Sending output to $Outfile"
 #Remove the old file if it exists
 if (Test-Path $Outfile) {
-    Remove-Item -Path $Outfile  
+    Remove-Item -Path $Outfile  ntrolSet\Control\Lsa" /v LmCompatibilityLevel
 }
 
 
@@ -222,7 +222,7 @@ function Invoke-MyCommand {
 #                "$section:: Error processing command" | out-file -encoding ascii -FilePath $Outfile -Append -width $OutWidth
 #                write-debug "$error"
 #            }
-        }
+        }ntrolSet\Control\Lsa" /v LmCompatibilityLevel
     }
 }
 
@@ -316,7 +316,7 @@ Function YesNoPrompt($prompt,$secondsToWait){
         if($host.UI.RawUI.KeyAvailable) {
             $key = $host.ui.RawUI.ReadKey("NoEcho,IncludeKeyUp")
             #Check if either of our keys were pressed
-            switch ($key.VirtualKeyCode) {
+            switch ($key.VirtuasystemnetworklKeyCode) {
                 $NoKeyCaps {                    
                     $ReturnVal=$False
                     $ResponseRecd=$True
@@ -708,6 +708,26 @@ $section="System_WindowsUpdateConfig"
     comment -section $section -text "This registry section seems to be related to Intune MDM and maybe with other Configuration Service Providers"
     comment -section $section -text "See https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-update for interpretation"
     $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\PolicyManager\current\device\Update" -ErrorAction SilentlyContinue | format-list }
+        Invoke-MyCommand -section $section -command $command
+footer -text $section
+
+$section="Networking_TLS" 
+    header -text $section
+    comment -section $section -text "TLS SCHANNEL"
+    $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client" -ErrorAction silentlycontinue }
+            Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client" -ErrorAction silentlycontinue }
+            Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" -ErrorAction silentlycontinue }
+            Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" -ErrorAction silentlycontinue }
+            Invoke-MyCommand -section $section -command $command            
+footer -text $section
+
+$section="Networking_NTLM" 
+    header -text $section
+    comment -section $section -text "Group Policy setting for NTLM security levels"
+    $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" -ErrorAction silentlycontinue }
         Invoke-MyCommand -section $section -command $command
 footer -text $section
 
@@ -1320,3 +1340,4 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
