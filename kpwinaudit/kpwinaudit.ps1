@@ -829,6 +829,524 @@ $command={ dir %ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\StartUp }
 Invoke-MyCommand -section $section -command $command
 footer -text $section
 
+$section="System_LOLBIN"
+    header -text $section
+    comment -section $section -text "Monitor LOLbins for tampering and usage outside expected location"
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\AddinUtil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\AddinUtil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v3.5\AddInUtil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v3.5\AddInUtil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_1.11.2521.0_x64__8wekyb3d8bbwe\AppInstaller.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\Windows\Microsoft.NET\Framework\v4.0.30319\aspnet_compiler.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\Windows\Microsoft.NET\Framework64\v4.0.30319\aspnet_compiler.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\Atbroker.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\Atbroker.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\WINDOWS\System32\At.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\WINDOWS\SysWOW64\At.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\bash.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\bash.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\bitsadmin.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\bitsadmin.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\certoc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\certoc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\certreq.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\certreq.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\certutil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\certutil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\change.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\change.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\cipher.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\cipher.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\cmdkey.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\cmdkey.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\cmdl32.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\cmdl32.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\cmd.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\cmd.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\cmstp.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\cmstp.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\colorcpl.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\colorcpl.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\ComputerDefaults.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\ComputerDefaults.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files\Windows Defender\ConfigSecurityPolicy.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\ConfigSecurityPolicy.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\conhost.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\control.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\control.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\cscript.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\cscript.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Csc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v3.5\csc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\csc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\csc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\CustomShellHost.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v3.5\DataSvcUtil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\desktopimgdownldr.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\DeviceCredentialDeployment.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\Dfsvc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\Dfsvc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Dfsvc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Dfsvc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\diantz.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\diantz.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\diskshadow.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\diskshadow.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\Dnscmd.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\Dnscmd.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\esentutl.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\esentutl.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\eudcedit.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\eudcedit.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\eventvwr.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\eventvwr.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\Expand.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\Expand.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\explorer.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\explorer.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files\Internet Explorer\Extexport.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files (x86)\Internet Explorer\Extexport.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\extrac32.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\extrac32.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\findstr.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\findstr.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\finger.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\finger.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\fltMC.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\forfiles.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\forfiles.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\fsutil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\fsutil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\ftp.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\ftp.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\gpscript.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\gpscript.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\hh.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\hh.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\ie4uinit.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\sysWOW64\ie4uinit.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\ieuinit.inf" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\sysWOW64\ieuinit.inf" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files\Internet Explorer\iediagcmd.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\ieexec.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\ieexec.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\ilasm.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\ilasm.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\IME\SHARED\IMEWDBLD.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\Infdefaultinstall.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\Infdefaultinstall.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\InstallUtil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\InstallUtil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\iscsicpl.exe  # UAC Bypass by breaking out from application" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\iscsicpl.exe  # UAC Bypass by DLL injection and breakout from application" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Jsc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Jsc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\Jsc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\Jsc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\ldifde.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\ldifde.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\makecab.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\makecab.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\mavinject.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ $command={ Get-FileHash -Path "C:\Windows\SysWOW64\mavinject.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.Net\Framework64\v4.0.30319\Microsoft.Workflow.Compiler.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\mmc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\mmc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.4-0\MpCmdRun.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.7-0\MpCmdRun.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\MpCmdRun.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files\Windows Defender\MpCmdRun.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files (x86)\Windows Defender\MpCmdRun.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.23110.3-0\X86\MpCmdRun.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\Msbuild.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\Msbuild.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v3.5\Msbuild.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v3.5\Msbuild.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Msbuild.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Msbuild.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files (x86)\MSBuild\14.0\bin\MSBuild.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\msconfig.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\Msdt.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\Msdt.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files (x86)\Microsoft\Edge\Application\msedge_proxy.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files (x86)\Microsoft\Edge\Application\114.0.1823.43\msedgewebview2.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files (x86)\Microsoft\EdgeWebView\Application\131.0.2903.70\msedgewebview2.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\Program Files\Microsoft\Edge\Application\msedge.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\mshta.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\mshta.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\msiexec.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\msiexec.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\WINDOWS\System32\Netsh.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\WINDOWS\SysWOW64\Netsh.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\ngen.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\ngen.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\ngen.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\ngen.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\odbcconf.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\odbcconf.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files\Windows Defender\Offline\OfflineScannerShell.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+#$command={ Get-FileHash -Path "'C:\Users\<username>\AppData\Local\Microsoft\OneDrive\OneDriveStandaloneUpdater.exe'"
+$command={ Get-FileHash -Path "C:\Program Files\Microsoft OneDrive\OneDriveStandaloneUpdater.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files (x86)\Microsoft OneDrive\OneDriveStandaloneUpdater.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\pcalua.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\pcwrun.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\pktmon.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\pktmon.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\system32\pnputil.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\Presentationhost.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\Presentationhost.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\spool\tools\PrintBrm.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\print.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\print.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\provlaunch.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\psr.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\psr.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\query.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\query.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\rasautou.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\rdrleakdiag.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\Windows\SysWOW64\rdrleakdiag.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\regasm.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\regasm.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\regasm.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\regasm.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\regedit.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\regini.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\regini.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\Register-cimprovider.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\Register-cimprovider.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\RegSvcs.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\RegSvcs.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\RegSvcs.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegSvcs.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\regsvr32.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\regsvr32.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\reg.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\reg.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\replace.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\replace.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\reset.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\reset.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\rpcping.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\rpcping.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\rundll32.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\rundll32.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\runexehelper.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\runonce.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\runonce.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\WinSxS\amd64_microsoft-windows-u..ed-telemetry-client_31bf3856ad364e35_10.0.16299.15_none_c2df1bba78111118\Runscripthelper.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\WinSxS\amd64_microsoft-windows-u..ed-telemetry-client_31bf3856ad364e35_10.0.16299.192_none_ad4699b571e00c4a\Runscripthelper.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\schtasks.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\schtasks.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\scriptrunner.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\scriptrunner.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\sc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\sc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\setres.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\SettingSyncHost.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\SettingSyncHost.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\OpenSSH\sftp.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\OpenSSH\ssh.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\stordiag.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\syswow64\stordiag.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\SyncAppvPublishingServer.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\SyncAppvPublishingServer.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\tar.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\tar.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\ttdinject.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Syswow64\ttdinject.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\tttracer.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\tttracer.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\unregmp2.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\unregmp2.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\vbc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v3.5\vbc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\vbc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\vbc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v3.5\vbc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\vbc.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\verclsid.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\verclsid.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files\Windows Mail\wab.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files (x86)\Windows Mail\wab.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\wbadmin.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\wbem\wbemtest.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Users\user\AppData\Local\Microsoft\WindowsApps\winget.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "c:\windows\system32\wlrmdr.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\wbem\wmic.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\wbem\wmic.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\WorkFolders.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\wscript.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\wscript.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\wsreset.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_<version_packageid>\wt.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\wuauclt.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\UUS\amd64\wuauclt.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\System32\xwizard.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\xwizard.exe" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+footer -text $section
+
 $section="Networking_EtcHosts" 
     header -text $section
     comment -section $section -text "Windows ETC Hosts file"
@@ -1507,6 +2025,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
