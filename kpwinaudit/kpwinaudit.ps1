@@ -374,7 +374,7 @@ $section="Script_Init"
                             Write-Host
                             write-host "OSName: $($osname.caption)"
                             $PSVersionTable
-                            $PSScriptRoot
+                            $PSScriptRootSYSTEM_AT
                             Read-host -Prompt "Press any key to continue..."
                         }
     }
@@ -479,7 +479,7 @@ $section="System_Disks"
     header -text $section
     comment -section $section -text "Contextual information on all attached disk drives.  Useful to compare against System_BitLockerStatus results."
     $command={ get-disk -ErrorAction SilentlyContinue | format-table -AutoSize }
-        Invoke-MyCommand -section $section -command $command
+        Invoke-MyCommand -section $section -command $SYSTEM_ATcommand
 footer -text $section
 
 $section="System_GroupPolicyResults"
@@ -708,6 +708,13 @@ $section="System_WindowsUpdateConfig"
     comment -section $section -text "This registry section seems to be related to Intune MDM and maybe with other Configuration Service Providers"
     comment -section $section -text "See https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-update for interpretation"
     $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\PolicyManager\current\device\Update" -ErrorAction SilentlyContinue | format-list }
+        Invoke-MyCommand -section $section -command $command
+footer -text $section
+
+$section="System_AT" 
+    header -text $section
+    comment -section $section -text "AT jobs used for LOLBAS persistence"
+    $command={ at }
         Invoke-MyCommand -section $section -command $command
 footer -text $section
 
@@ -1371,6 +1378,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
