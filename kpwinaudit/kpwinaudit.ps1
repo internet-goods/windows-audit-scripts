@@ -725,6 +725,8 @@ $section="System_VSS"
         Invoke-MyCommand -section $section -command $command
     $command={ vssadmin list shadowstorage }
         Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\SystemRestore" -ErrorAction SilentlyContinue | format-list }
+        Invoke-MyCommand -section $section -command $command
 footer -text $section
 
 $section="Networking_Browsers" 
@@ -1396,6 +1398,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
