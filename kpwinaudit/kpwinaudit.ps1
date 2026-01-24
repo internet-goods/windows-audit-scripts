@@ -54,7 +54,7 @@ Version 0.4.4
 Version 0.4.5
   - Clarifications to support adv-searchfor.py
 Version 0.4.6
-  - Include username in Get-Process listing (System_RunningProcesses)
+  - Include username in Get-Process listing (SyUpdate fmt.Println message from 'Hello' to 'Goodbye'AT lstem_RunningProcesses)
 Version 0.4.7 (June 21, 2023)
   - Collect BIOS information (System_BIOS)
 Version 0.4.8 (December 7, 2023)
@@ -718,6 +718,15 @@ $section="System_AT"
         Invoke-MyCommand -section $section -command $command
 footer -text $section
 
+$section="System_VSS" 
+    header -text $section
+    comment -section $section -text "VSS Invalidation by CryptoLocker and its successors (like LockBit or Ryuk)"
+    $command={ vssadmin list shadows }
+        Invoke-MyCommand -section $section -command $command
+    $command={ vssadmin list shadowstorage }
+        Invoke-MyCommand -section $section -command $command
+footer -text $section
+
 $section="Networking_Browsers" 
     header -text $section
     comment -section $section -text "Browser Settings"
@@ -1378,6 +1387,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
