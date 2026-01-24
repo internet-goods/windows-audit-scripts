@@ -729,12 +729,21 @@ $section="System_VSS"
         Invoke-MyCommand -section $section -command $command
 footer -text $section
 
-$section="Networking_Browsers" 
+$section="Networking_EtcHosts" 
     header -text $section
     comment -section $section -text "Windows ETC Hosts file"
     $command={ type C:\Windows\System32\drivers\etc\hosts }
         Invoke-MyCommand -section $section -command $command
     $command={ Get-FileHash C:\Windows\System32\drivers\etc\hosts | Format-List }
+        Invoke-MyCommand -section $section -command $command
+footer -text $section
+
+$section="Networking_Proxy" 
+    header -text $section
+    comment -section $section -text "Windows ETC Hosts file"
+    $command={ netsh winhttp show proxy }
+        Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Internet Settings"  -ErrorAction silentlycontinue  }
         Invoke-MyCommand -section $section -command $command
 footer -text $section
 
@@ -1398,6 +1407,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
