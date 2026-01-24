@@ -711,6 +711,8 @@ $section="System_WindowsUpdateConfig"
         Invoke-MyCommand -section $section -command $command
 footer -text $section
 
+
+
 $section="System_AT" 
     header -text $section
     comment -section $section -text "AT jobs used for LOLBAS persistence"
@@ -727,6 +729,104 @@ $section="System_VSS"
         Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\SystemRestore" -ErrorAction SilentlyContinue | format-list }
         Invoke-MyCommand -section $section -command $command
+footer -text $section
+
+$section="System_ProcessMitigation"
+    header -text $section
+    comment -section $section -text "Demonstrate shared hosting segmentation controls with Set-ProcessMitigation"
+    $command={ Get-ProcessMitigation -system }
+        Invoke-MyCommand -section $section -command $command
+footer -text $section
+
+$section="System_BCDEdit"
+    header -text $section
+    comment -section $section -text "Demonstrate shared hosting segmentation controls with bcdedit"
+    $command={ bcdedit }
+        Invoke-MyCommand -section $section -command $command
+footer -text $section
+
+$section="System_Virtualization"
+    header -text $section
+    comment -section $section -text "Demonstrate shared hosting segmentation controls with virtualization" 
+    $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard" -ErrorAction SilentlyContinue | format-list }
+        Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\SystemGuard" -ErrorAction SilentlyContinue | format-list }
+        Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\KernelShadowStacks" -ErrorAction SilentlyContinue | format-list }
+        Invoke-MyCommand -section $section -command $command
+    $command={ Get-CimInstance –ClassName Win32_DeviceGuard –Namespace root\Microsoft\Windows\DeviceGuard }
+        Invoke-MyCommand -section $section -command $command
+    $command={ Get-ComputerInfo -Property "HyperV*" }
+        Invoke-MyCommand -section $section -command $command
+
+footer -text $section
+
+$section="System_CertUtil"
+    header -text $section
+    comment -section $section -text "Only load approved CAs" 
+    $command={ certutil }
+        Invoke-MyCommand -section $section -command $command
+    $command={ certutil -store Root }
+        Invoke-MyCommand -section $section -command $command
+footer -text $section
+
+$section="System_WMIC"
+    header -text $section
+    comment -section $section -text "WMIC is commonly exploited by fileless malware" 
+    $command={ wmic /namespace:"\\root\subscription" path __EventFilter get /format:list }
+        Invoke-MyCommand -section $section -command $command
+    $command={ wmic /namespace:"\\root\subscription" path __EventConsumer get /format:list }
+        Invoke-MyCommand -section $section -command $command
+    $command={ wmic /namespace:"\\root\subscription" path __FilterToConsumerBinding get /format:list }
+        Invoke-MyCommand -section $section -command $command
+    $command={ wmic /namespace:"\\root\subscription" path __FilterToConsumerBinding get /format:list }
+        Invoke-MyCommand -section $section -command $command
+    $command={ wmic nicconfig get * /format:csv }
+        Invoke-MyCommand -section $section -command $command
+footer -text $section
+
+$section="System_Registry_Persistence"
+    header -text $section
+    comment -section $section -text " Exporting HKLM Registry keys commonly used for malware persistence...
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunServices" -ErrorAction SilentlyContinue }
+        Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\GpExtensions" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\System\CurrentControlSet\Control\Session Manager\BootExecute" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\Appinit_Dlls" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Shell Extensions" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+footer -text $section
+
+$section="System_StartFolder_Persistence"
+    header -text $section
+    comment -section $section -text "Showing files in Start Dirs commonly used for malware persistence..."
+$command={ dir %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup }
+Invoke-MyCommand -section $section -command $command
+$command={ dir %ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\StartUp }
+Invoke-MyCommand -section $section -command $command
 footer -text $section
 
 $section="Networking_EtcHosts" 
@@ -1407,6 +1507,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
