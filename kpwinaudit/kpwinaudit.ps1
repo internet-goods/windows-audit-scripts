@@ -820,6 +820,16 @@ $section="System_Registry_Persistence"
        Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Shell Extensions" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run" -ErrorAction SilentlyContinue 
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServices" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServicesOnce" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
 footer -text $section
 
 $section="System_StartFolder_Persistence"
@@ -2030,6 +2040,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
