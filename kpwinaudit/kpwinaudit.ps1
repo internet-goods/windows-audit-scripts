@@ -1765,7 +1765,7 @@ $section="AntiVirus_AVStatus"
     comment -section $section -text "  ProductState=262144 = Up to Date Defs, On Access Scanning OFF"
     comment -section $section -text "  ProductState=266240 = Up to Date Defs, ON Access Scanning ON"
     comment -section $section -text "  ProductState=393216 = Up to Date Defs, On Access Scanning OFF"
-    comment -section $section -text "  ProductState=397312 = Up to Date Defs, ON Access Scanning ON"
+    comment -section $section -text "  ProcessCreationIncludeCmdLine_EnabledProductState=397312 = Up to Date Defs, ON Access Scanning ON"
     comment -section $section -text " Other antivirus products will need to be researched"
     $command={ Get-WmiObject -Namespace "root\SecurityCenter2" -Query "SELECT * FROM AntivirusProduct" -ErrorAction silentlycontinue | Select-Object -property displayName, productState | Format-list }
         Invoke-MyCommand -section $section -command $command
@@ -1843,16 +1843,18 @@ $section="Logging_EventLogSamples"
             $command={ "Log ""$i"" does not exist on this computer."}
         }
     }
-    $section="Logging_EventLogSamples"
+    $section="Logging_EventLogSamples"ProcessCreationIncludeCmdLine_Enabled
 footer -text $section
 
-$section="Logging_Powershell" 
+$section="Logging_Forensics" 
     header -text $section
-    comment -section $section -text "Powershell Logging for threat hunting"
+    comment -section $section -text "ProcessCreationIncludeCmdLine_Enabled and Powershell Logging for threat hunting"
     $command={ Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ModuleLogging" -ErrorAction silentlycontinue }
             Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ModuleLogging" -ErrorAction silentlycontinue }
             Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System\" -ErrorAction silentlycontinue }
+            Invoke-MyCommand -section $section -command $command 
 footer -text $section
 
 #Stop-Transcript
@@ -1921,7 +1923,7 @@ footer -text $section
 # LXJzYS1Sb290Q0EuY3JsMB0GA1UdDgQWBBRUwv4QlQCTzWr158DX2bJLuI8M4zAO
 # BgNVHQ8BAf8EBAMCAYYwDQYJKoZIhvcNAQELBQADggIBAPUPJodwr5miyvXWyfCN
 # Zj05gtOII9iCv49UhCe204MH154niU2EjlTRIO5gQ9tXQjzHsJX2vszqoz2OTwbG
-# K1mGf+tzG8rlQCbgPW/M9r1xxs19DiBAOdYF0q+UCL9/wlG3K7V7gyHwY9rlnOFp
+# K1mGf+tzG8rlQCbgPW/M9r1xxs19DiBAOdYF0ProcessCreationIncludeCmdLine_Enabledq+UCL9/wlG3K7V7gyHwY9rlnOFp
 # LnUdTsthHvWlM98CnRXZ7WmTV7pGRS6AvGW+5xI+3kf/kJwQrfZWsqTU+tb8LryX
 # IbN2g9KR+gZQ0bGAKID+260PZ+34fdzZcFt6umi1s0pmF4/n8OdX3Wn+vF7h1Yyf
 # E7uVmhX7eSuF1W0+Z0duGwdc+1RFDxYRLhHDsLy1bhwzV5Qe/kI0Ro4xUE7bM1eV
@@ -2027,6 +2029,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
