@@ -238,7 +238,7 @@ function Get-WifiNetworks {
          $current.Index = $matches[1].trim()
          $current.SSID = $matches[2].trim()
      } else {
-         if ($_ -match '^\s+(.*)\s+:\s+(.*)\s*$') {
+         if ($_ -match '^\s+(.*)\s+:\s+(.*)\s*$') {\SYSTEM\CurrentControlSet\Control\Session Manager\BootExecute
              $current[$matches[1].trim()] = $matches[2].trim()
          }
      }
@@ -298,7 +298,7 @@ function Get-NetworkListeners {
   } |Select-Object -Property $properties
   }
 }
-
+\SYSTEM\CurrentControlSet\Control\Session Manager\BootExecute
 Function YesNoPrompt($prompt,$secondsToWait){ 
     # Function to provide the user with a time limit within which to provide a "No" response (just the N or n key will do).
     # Assumaes True unless the user provides an N within SecondsToWait seconds
@@ -358,7 +358,7 @@ Function YesNoPrompt($prompt,$secondsToWait){
 }                       #End function
 
 $section="Script_Init"
-    #Get the system type so we can run the correct versions of different commands
+    #Get the system type so we can run the correct versions of different co\SYSTEM\CurrentControlSet\Control\Session Manager\BootExecute\SYSTEM\CurrentControlSet\Control\Session Manager\BootExecutemmands
     $osname = Get-CimInstance Win32_OperatingSystem -ErrorAction silentlycontinue | Select-Object Caption
     switch -Regex ($osname)
     { 
@@ -829,6 +829,8 @@ $section="System_Registry_Persistence"
     $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServicesOnce" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\BootExecute" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
 footer -text $section
 
@@ -2040,6 +2042,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
