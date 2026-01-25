@@ -1849,6 +1849,7 @@ footer -text $section
 $section="Logging_Forensics" 
     header -text $section
     comment -section $section -text "ProcessCreationIncludeCmdLine_Enabled and Powershell Logging for threat hunting"
+    comment -section $section -text "requires Audit Process Creation to Success (and Failure if desired)."
     $command={ Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ModuleLogging" -ErrorAction silentlycontinue }
             Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ModuleLogging" -ErrorAction silentlycontinue }
@@ -2029,6 +2030,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
