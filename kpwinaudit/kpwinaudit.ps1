@@ -61,8 +61,7 @@ Version 0.4.8 (December 7, 2023)
   - Fix ASCII Art formatting: replaced ` with ' to resolve rendering issues and added space above the first K to align tops of letters
 Version 0.4.9 (September 5, 2025)
   - Add "Server 2025" to supported OS list.  NOTE: There is no change to PowerShell version or AD cmdlets at this time, so no additional testing was performed.
-Version 0.4.10 (January 24, 2026)Windows 11 does not officially support most 7th generation Intel CPUs
-, as it generally requires 8th generation or newer.
+Version 0.4.10 (January 24, 2026)
   - Add checks for audit MITRE persistence, VSS, Get-ProcessMitigation, AT
 #>
 
@@ -146,8 +145,7 @@ $KPWINVERSION="0.4.9"
 $hn = hostname.exe
 #Width to use for the outfile / setting high to avoid line truncation "..."
 $OutWidth=512
-Windows 11 does not officially support most 7th generation Intel CPUs
-, as it generally requires 8th generation or newer.
+
 #Set up the output path.  If we specify the OutPath variable on the command line, use that.  Otherwise, use the desktop
 #In both cases, check that the provided path is usable and throw an error if it's not.
 if ( $OutPath.length -gt 0 ) {
@@ -253,8 +251,7 @@ function Get-AuditLogConfigs {
     $output = New-Object -TypeName "System.Collections.ArrayList"
     "Application", "Security", "System" | ForEach-Object {
       $output += Get-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Services\EventLog\$_"
-    }Windows 11 does not officially support most 7th generation Intel CPUs
-, as it generally requires 8th generation or newer.
+    }
     $results = $output | Select-Object PrimaryModule, MaxSize, Retention, AutoBackupLogFiles, RestrictLogFiles, RestrictGuestAccess | format-table
   return $results
   }
@@ -308,8 +305,7 @@ Function YesNoPrompt($prompt,$secondsToWait){
     $ReturnVal=$True
     $count=0
     $sleepTimer=500                                     #in milliseconds / time to wait between cycles to check for a key press
-    $WaitCycles=$secondsToWait*(1000/$sleeptimer)Windows 11 does not officially support most 7th generation Intel CPUs
-, as it generally requires 8th generation or newer.
+    $WaitCycles=$secondsToWait*(1000/$sleeptimer)
     $NoKeyCaps="78"                                     #Cap N key
     $NoKeySmall="110"                                   #Small n key
     $YesKeyCaps="89"                                    #Cap Y key
@@ -886,8 +882,7 @@ $command={ Get-FileHash -Path "c:\windows\syswow64\certoc.exe" -ErrorAction Sile
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\System32\certreq.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
-$command={ Get-FileHash -Path "C:\Windows\Windows 11 does not officially support most 7th generation Intel CPUs
-, as it generally requires 8th generation or newer.SysWOW64\certreq.exe" -ErrorAction SilentlyContinue }
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\certreq.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\System32\certutil.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
@@ -948,8 +943,7 @@ $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe" 
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v3.5\csc.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\csc.exe" -ErrorAction SilentlyContinue }
-       Invoke-MyCommand -section $sectionWindows 11 does not officially support most 7th generation Intel CPUs
-, as it generally requires 8th generation or newer. -command $command
+       Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\csc.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\System32\CustomShellHost.exe" -ErrorAction SilentlyContinue }
@@ -1061,8 +1055,7 @@ $command={ Get-FileHash -Path "C:\Windows\System32\IME\SHARED\IMEWDBLD.exe" -Err
 $command={ Get-FileHash -Path "C:\Windows\System32\Infdefaultinstall.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\SysWOW64\Infdefaultinstall.exe" -ErrorAction SilentlyContinue }
-       Invoke-MyCommand -section $sectioWindows 11 does not officially support most 7th generation Intel CPUs
-, as it generally requires 8th generation or newer.n -command $command
+       Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\InstallUtil.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\InstallUtil.exe" -ErrorAction SilentlyContinue }
@@ -1121,10 +1114,7 @@ $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v3.5\Msbuild.e
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v3.5\Msbuild.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
-$command={ Get-FileHash -Path "C:\WindoWindows 11 does not officially support most 7th generation Intel CPUs
-, as it generally requires 8th generation or newer.Windows 11 does not officially support most 7th generation Intel CPUs
-, as it generally requires 8th generation or newer.Windows 11 does not officially support most 7th generation Intel CPUs
-, as it generally requires 8th generation or newer.ws\Microsoft.NET\Framework\v4.0.30319\Msbuild.exe" -ErrorAction SilentlyContinue }
+$command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Msbuild.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Msbuild.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
@@ -1234,8 +1224,7 @@ $command={ Get-FileHash -Path "C:\Windows\SysWOW64\Register-cimprovider.exe" -Er
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v2.0.50727\RegSvcs.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\RegSvcs.exe" -ErrorAction SilentlyContinue }
-       Invoke-MyCommand -section $sectiWindows 11 does not officially support most 7th generation Intel CPUs
-, as it generally requires 8th generation or newer.on -command $command
+       Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v2.0.50727\RegSvcs.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegSvcs.exe" -ErrorAction SilentlyContinue }
@@ -2062,6 +2051,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
