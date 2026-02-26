@@ -298,7 +298,7 @@ function Get-NetworkListeners {
   } |Select-Object -Property $properties
   }
 }
-\SYSTEM\CurrentControlSet\Control\Session Manager\BootExecute
+
 Function YesNoPrompt($prompt,$secondsToWait){ 
     # Function to provide the user with a time limit within which to provide a "No" response (just the N or n key will do).
     # Assumaes True unless the user provides an N within SecondsToWait seconds
@@ -1361,6 +1361,13 @@ $command={ Get-FileHash -Path "C:\Windows\SysWOW64\xwizard.exe" -ErrorAction Sil
        Invoke-MyCommand -section $section -command $command
 footer -text $section
 
+$section="System_OneDrive" 
+    header -text $section
+    comment -section $section -text "To disable OneDrive should be DisableFileSyncNGSC=1"
+    $command={ Get-ItemProperty -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive" -ErrorAction silentlycontinue }
+        Invoke-MyCommand -section $section -command $command
+footer -text $section
+
 $section="System_TPM_UEFI" 
     header -text $section
     comment -section $section -text "Windows TPM UEFI"
@@ -1368,6 +1375,17 @@ $section="System_TPM_UEFI"
         Invoke-MyCommand -section $section -command $command
     $command={ Confirm-SecureBootUEFI }
         Invoke-MyCommand -section $section -command $command
+footer -text $section
+
+$section="System_WUDO" 
+    header -text $section
+    comment -section $section -text "Disable Windows Update Delivery Optimization with DODownloadMode=0"
+    $command={ get-ItemProperty -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DoSvc" -ErrorAction silentlycontinue }
+        Invoke-MyCommand -section $section -command $command
+    $command={ get-ItemProperty -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" -ErrorAction silentlycontinue }
+        Invoke-MyCommand -section $section -command $command
+    $command={ get-ItemProperty -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" -ErrorAction silentlycontinue }
+        Invoke-MyCommand -section $section -command $command 
 footer -text $section
 
 $section="Networking_EtcHosts" 
@@ -2051,6 +2069,7 @@ footer -text $section
 # RQIgC1hx8cKsbn7IHVqLNU48/v4kwR+/ThHGwYuU2tjQCr0CIQDLh5wx7ux6lzY4
 # 6BprxlIMhk2IC44hibT8bRxfyhCzLA==
 # SIG # End signature block
+
 
 
 
