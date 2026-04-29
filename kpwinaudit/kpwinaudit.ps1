@@ -1524,6 +1524,8 @@ footer -text $section
 
 $section="Networking_WindowsFirewallStatus"
     header -text $section
+    $command={ Get-NetConnectionProfile }
+        Invoke-MyCommand -section $section -command $command
     $command={ Get-NetFirewallProfile -ErrorAction silentlycontinue | Select-Object Name, Enabled, DefaultInboundAction, DefaultOutboundAction, LogFileName, LogAllowed, LogBlocked, LogIgnored | format-table -Autosize }
         Invoke-MyCommand -section $section -command $command
     $command={ netsh advfirewall show allprofiles state }
