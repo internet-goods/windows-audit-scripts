@@ -1085,7 +1085,7 @@ $command={ Get-FileHash -Path "C:\Windows\SysWOW64\makecab.exe" -ErrorAction Sil
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\System32\mavinject.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
-$command={ $command={ Get-FileHash -Path "C:\Windows\SysWOW64\mavinject.exe" -ErrorAction SilentlyContinue }
+$command={ Get-FileHash -Path "C:\Windows\SysWOW64\mavinject.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.Net\Framework64\v4.0.30319\Microsoft.Workflow.Compiler.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
