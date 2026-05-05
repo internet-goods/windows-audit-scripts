@@ -111,7 +111,7 @@ Version 0.4.10 (January 24, 2026)
 .EXAMPLE
     Allow the script to start the W32Time Service.
 
-    ./kpwinaudit.ps1 -StartTimeServicentrolSet\Control\Lsa" /v LmCompatibilityLevel
+    ./kpwinaudit.ps1 -StartTimeService
 
 .LINK
     https://github.com/kirkpatrickprice/windows-audit-scripts
@@ -169,7 +169,7 @@ if ( $OutPath.length -gt 0 ) {
 write-host "Sending output to $Outfile"
 #Remove the old file if it exists
 if (Test-Path $Outfile) {
-    Remove-Item -Path $Outfile  ntrolSet\Control\Lsa" /v LmCompatibilityLevel
+    Remove-Item -Path $Outfile
 }
 
 
@@ -224,7 +224,7 @@ function Invoke-MyCommand {
 #                "$section:: Error processing command" | out-file -encoding ascii -FilePath $Outfile -Append -width $OutWidth
 #                write-debug "$error"
 #            }
-        }ntrolSet\Control\Lsa" /v LmCompatibilityLevel
+        }
     }
 }
 
@@ -238,7 +238,7 @@ function Get-WifiNetworks {
          $current.Index = $matches[1].trim()
          $current.SSID = $matches[2].trim()
      } else {
-         if ($_ -match '^\s+(.*)\s+:\s+(.*)\s*$') {\SYSTEM\CurrentControlSet\Control\Session Manager\BootExecute
+         if ($_ -match '^\s+(.*)\s+:\s+(.*)\s*$') {
              $current[$matches[1].trim()] = $matches[2].trim()
          }
      }
@@ -358,7 +358,7 @@ Function YesNoPrompt($prompt,$secondsToWait){
 }                       #End function
 
 $section="Script_Init"
-    #Get the system type so we can run the correct versions of different co\SYSTEM\CurrentControlSet\Control\Session Manager\BootExecute\SYSTEM\CurrentControlSet\Control\Session Manager\BootExecutemmands
+    #Get the system type so we can run the correct versions of different commands
     $osname = Get-CimInstance Win32_OperatingSystem -ErrorAction silentlycontinue | Select-Object Caption
     switch -Regex ($osname)
     { 
@@ -760,7 +760,6 @@ $section="System_Virtualization"
         Invoke-MyCommand -section $section -command $command
     $command={ Get-ComputerInfo -Property "HyperV*" }
         Invoke-MyCommand -section $section -command $command
-
 footer -text $section
 
 $section="System_CertUtil"
