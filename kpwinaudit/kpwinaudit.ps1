@@ -1889,7 +1889,7 @@ footer -text $section
 $section="Logging_Forensics" 
     header -text $section
     comment -section $section -text "ProcessCreationIncludeCmdLine_Enabled and Powershell Logging for threat hunting"
-    $command={ Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit -Name "ProcessCreationIncludeCmdLine_Enabled" -ErrorAction silentlycontinue }
+    $command={ Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit" -Name ProcessCreationIncludeCmdLine_Enabled -ErrorAction silentlycontinue }
             Invoke-MyCommand -section $section -command $command
     comment -section $section -text "requires Audit Process Creation to Success (and Failure if desired)."
     $command={ Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ModuleLogging" -ErrorAction silentlycontinue }
