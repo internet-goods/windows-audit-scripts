@@ -788,7 +788,7 @@ footer -text $section
 
 $section="System_Registry_Persistence"
     header -text $section
-    comment -section $section -text " Exporting HKLM Registry keys commonly used for malware persistence...
+    comment -section $section -text "T1547.001	Registry Run Keys"
     $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunServices" -ErrorAction SilentlyContinue }
         Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce" -ErrorAction SilentlyContinue }
@@ -803,6 +803,12 @@ $section="System_Registry_Persistence"
        Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -path "HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
+       
+    comment -section $section -text "T1547.003 TimeProviders"
+    $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders" -ErrorAction silentlycontinue }
+       Invoke-MyCommand -section $section -command $command
+    
+    comment -section $section -text "T1547.004	Winlogon Helper DLL"
     $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell" -ErrorAction SilentlyContinue }
@@ -811,6 +817,13 @@ $section="System_Registry_Persistence"
        Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\GpExtensions" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
+
+    comment -section $section -text "T1547.005	Security Support Provider"
+    $command={ Get-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\Security Packages" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\OSConfig\Security Packages" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+       
     $command={ Get-ItemProperty -path "HKLM:\System\CurrentControlSet\Control\Session Manager\BootExecute" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\Appinit_Dlls" -ErrorAction SilentlyContinue }
@@ -835,11 +848,11 @@ footer -text $section
 
 $section="System_StartFolder_Persistence"
     header -text $section
-    comment -section $section -text "Showing files in Start Dirs commonly used for malware persistence..."
-$command={ dir %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup }
-Invoke-MyCommand -section $section -command $command
-$command={ dir %ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\StartUp }
-Invoke-MyCommand -section $section -command $command
+    comment -section $section -text "T1547.001	Startup Folder"
+    $command={ dir %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup }
+       Invoke-MyCommand -section $section -command $command
+    $command={ dir %ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\StartUp }
+       Invoke-MyCommand -section $section -command $command
 footer -text $section
 
 $section="System_LOLBIN"
@@ -1607,9 +1620,6 @@ $section="Time_W32TimeRegistry"
             Invoke-MyCommand -section $section -command $command
     $section="Time_W32TimeRegistry-NtpServer"
         $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpServer" -ErrorAction silentlycontinue }
-            Invoke-MyCommand -section $section -command $command
-    $section="Time_W32TimeRegistry-TimeProviders T1547.003"
-        $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders" -ErrorAction silentlycontinue }
             Invoke-MyCommand -section $section -command $command
     $section="Time_W32TimeRegistry"
 footer -text $section
