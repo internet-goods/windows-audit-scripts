@@ -1450,8 +1450,11 @@ footer -text $section
 
 $section="Networking_BITS" 
     header -text $section
-    comment -section $section -text "BITS lolbin jobs"
+    comment -section $section -text "T1197	BITS Jobs"
     $command={ bitsadmin /list /allusers }
+        Invoke-MyCommand -section $section -command $command
+    comment -section $section -text "Reduce default BITS JobInactivityTimeout and MaxDownloadTime Registry values in HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\BITS"
+    $command={ Get-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\BITS" -ErrorAction silentlycontinue }
         Invoke-MyCommand -section $section -command $command
 footer -text $section
 
