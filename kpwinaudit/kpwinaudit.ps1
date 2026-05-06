@@ -1608,6 +1608,9 @@ $section="Time_W32TimeRegistry"
     $section="Time_W32TimeRegistry-NtpServer"
         $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpServer" -ErrorAction silentlycontinue }
             Invoke-MyCommand -section $section -command $command
+    $section="Time_W32TimeRegistry-TimeProviders T1547.003"
+        $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders" -ErrorAction silentlycontinue }
+            Invoke-MyCommand -section $section -command $command
     $section="Time_W32TimeRegistry"
 footer -text $section
 
