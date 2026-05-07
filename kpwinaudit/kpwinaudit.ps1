@@ -837,10 +837,21 @@ $section="System_Registry_Persistence"
        Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\OSConfig\Security Packages" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
+    
+    comment -section $section -text "T1547.008 LSASS Driver On Windows 8.1 and Server 2012 R2, enable LSA Protection by setting RunAsPPL"
+    $command={ Get-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\RunAsPPL" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+   
+    $command={ Get-ItemProperty -path "HKLM:\System\CurrentControlSet\Control\Session Manager\SafeDllSearchMode" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+       
+    comment -section $section -text "T1547.010 Port Monitors"   
+    $command={ Get-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\Print\Monitors" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command   
     comment -section $section -text "T1547.014	Active Setup"
     $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
-       
+
 
     
 footer -text $section
