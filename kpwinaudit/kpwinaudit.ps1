@@ -805,10 +805,23 @@ $section="System_Registry_Persistence"
        Invoke-MyCommand -section $section -command $command
     $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServicesOnce" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\System\CurrentControlSet\Control\Session Manager\BootExecute" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\Appinit_Dlls" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Shell Extensions" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+    $command={ Get-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\BootExecute" -ErrorAction SilentlyContinue }
+       Invoke-MyCommand -section $section -command $command
+       
     comment -section $section -text "T1547.003 TimeProviders"
     $command={ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders" -ErrorAction silentlycontinue }
        Invoke-MyCommand -section $section -command $command
-    
+     
     comment -section $section -text "T1547.004	Winlogon Helper DLL"
     $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
@@ -828,18 +841,7 @@ $section="System_Registry_Persistence"
     $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
        
-    $command={ Get-ItemProperty -path "HKLM:\System\CurrentControlSet\Control\Session Manager\BootExecute" -ErrorAction SilentlyContinue }
-       Invoke-MyCommand -section $section -command $command
-    $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\Appinit_Dlls" -ErrorAction SilentlyContinue }
-       Invoke-MyCommand -section $section -command $command
-    $command={ Get-ItemProperty -path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" -ErrorAction SilentlyContinue }
-       Invoke-MyCommand -section $section -command $command
-    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Shell Extensions" -ErrorAction SilentlyContinue }
-       Invoke-MyCommand -section $section -command $command
-    $command={ Get-ItemProperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run" -ErrorAction SilentlyContinue }
-       Invoke-MyCommand -section $section -command $command
-    $command={ Get-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\BootExecute" -ErrorAction SilentlyContinue }
-       Invoke-MyCommand -section $section -command $command
+
     
 footer -text $section
 
