@@ -856,7 +856,7 @@ footer -text $section
 
 $section="System_LOLBIN"
     header -text $section
-    comment -section $section -text "Monitor LOLbins for tampering and usage outside expected location"
+    comment -section $section -text "T1554 Compromise Host Software Binary LOLbins tampering"
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework\v4.0.30319\AddinUtil.exe" -ErrorAction SilentlyContinue }
        Invoke-MyCommand -section $section -command $command
 $command={ Get-FileHash -Path "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\AddinUtil.exe" -ErrorAction SilentlyContinue }
